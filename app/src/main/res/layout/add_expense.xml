@@ -101,6 +101,6 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:text="@string/add_expanse_button_text"
-        android:onClick="addExpanse"/>
+        android:onClick="addTransactionButtonClicked"/>
 
 </LinearLayout>

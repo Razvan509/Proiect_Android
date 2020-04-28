@@ -32,7 +32,7 @@ public class TransactionViewModel extends AndroidViewModel {
         repository.delete(transaction);
     }
 
-    public LiveData<List<Transaction>> getUsers(){
+    public LiveData<List<Transaction>> getTransactions(){
         return transactions;
     }
 }

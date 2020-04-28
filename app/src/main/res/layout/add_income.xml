@@ -65,6 +65,6 @@
         android:textStyle="bold"
         android:textSize="15sp"
         android:text="@string/add_income_button_text"
-        android:onClick="addIncome"/>
+        android:onClick="addTransactionButtonClicked"/>
 
 </LinearLayout>

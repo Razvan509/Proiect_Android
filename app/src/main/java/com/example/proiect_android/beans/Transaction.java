@@ -5,37 +5,42 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
 
 import java.util.Date;
 
 @Entity(tableName = "transactions", foreignKeys =
-        {@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "userId"),
-                @ForeignKey(entity = Category.class, parentColumns = "id", childColumns = "categoryId")})
+        {@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "user_id"),
+                @ForeignKey(entity = Category.class, parentColumns = "id", childColumns = "category_id")})
 public class Transaction {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
+
 
     @ColumnInfo(name = "transaction_date")
     @NonNull
     private Date transactionDate;
 
     @ColumnInfo(name = "description")
-    private String Description;
+    private String description;
 
     @ColumnInfo(name = "amount")
     @NonNull
     private float amount;
 
     @ColumnInfo(name = "user_id")
-
     private int userId;
 
     @ColumnInfo(name = "category_id")
     @NonNull
     private int categoryId;
 
-
+    public Transaction(String description, float amount, int categoryId){
+        this.description = description;
+        this.amount = amount;
+        this.categoryId = categoryId;
+    }
 
     public int getId() {
         return id;
@@ -55,11 +60,11 @@ public class Transaction {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description = description;
     }
 
     public float getAmount() {

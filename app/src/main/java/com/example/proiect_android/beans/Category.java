@@ -7,13 +7,18 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "categories")
 public class Category {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
     private int id;
 
     @ColumnInfo(name = "name")
     @NonNull
     private String name;
+
+    public Category(int id, String name){
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;

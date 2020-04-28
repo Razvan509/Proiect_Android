@@ -2,30 +2,31 @@ package com.example.proiect_android.activities;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.proiect_android.beans.Transaction;
+import com.example.proiect_android.fragments.FirstPageFragment;
+import com.example.proiect_android.R;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.proiect_android.R;
-import com.example.proiect_android.adapters.UserAdapter;
-import com.example.proiect_android.beans.User;
+import com.example.proiect_android.activities.AddTransactionActivity;
+import com.example.proiect_android.models.TransactionViewModel;
 import com.example.proiect_android.models.UserViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
+import java.sql.Date;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int ADD_USER_REQUEST = 1;
-    private UserViewModel userViewModel;
-
-    private EditText etNewUser;
+    public static final int ADD_TRANSACTION_REQUEST = 1;
+    private FirstPageFragment firstPageFragment;
+    private TransactionViewModel transactionViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,46 +34,41 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         FloatingActionButton buttonAddUser = findViewById(R.id.button_add_transaction);
-        buttonAddUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddTransactionActivity.class);
-                startActivityForResult(intent, ADD_USER_REQUEST);
 
-            }
-        });
+        firstPageFragment = new FirstPageFragment();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.container, firstPageFragment);
+        fragmentTransaction.commit();
 
-        RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setHasFixedSize(true);
+        transactionViewModel = ViewModelProviders.of(this).get(TransactionViewModel.class);
 
-        final UserAdapter adapter = new UserAdapter();
-        recyclerView.setAdapter(adapter);
 
-        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
-        userViewModel.getUsers().observe(this, new Observer<List<User>>() {
-            @Override
-            public void onChanged(List<User> users) {
-                adapter.setUsers(users);
-            }
-        });
 
     }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == ADD_USER_REQUEST && resultCode == RESULT_OK){
-            String userName = data.getStringExtra(AddTransactionActivity.EXTRA_USER_NAME);
+        if (requestCode == ADD_TRANSACTION_REQUEST && resultCode == RESULT_OK){
+            String description = data.getStringExtra(AddTransactionActivity.EXTRA_DESCRIPTION);
+            float amount = Float.valueOf(data.getStringExtra(AddTransactionActivity.EXTRA_AMOUNT));
+            int categoryId = Integer.valueOf(data.getStringExtra(AddTransactionActivity.EXTRA_CATEGORYID));
+            //Date transactionDate = Date.valueOf(data.getStringExtra(AddTransactionActivity.EXTRA_DATE));
 
-            User user = new User();
-            user.setUserName(userName);
-            userViewModel.insert(user);
+            Transaction transaction = new Transaction(description,amount,categoryId);
+//            transaction.setAmount(amount);
+//            transaction.setCategoryId(categoryId);
+//            transaction.setDescription(description);
+            //transaction.setTransactionDate(transactionDate);
 
-            Toast.makeText(this, "User saved", Toast.LENGTH_SHORT).show();
+            transactionViewModel.insert(transaction);
+
+            Toast.makeText(this, "Transaction saved", Toast.LENGTH_SHORT).show();
         } else{
-            Toast.makeText(this, "User not saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Transaction not saved", Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -15,10 +15,4 @@ import java.util.List;
 public interface CategoryDao {
     @Insert
     void insert(Category category);
-    @Update
-    void update(Category category);
-    @Delete
-    void delete(Category category);
-    @Query("SELECT * FROM transactions")
-    LiveData<List<Category>> getAllTransactions();
 }

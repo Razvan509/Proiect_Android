@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -22,7 +26,7 @@
 
     <TextView
         android:id="@+id/totalAmount"
-        android:layout_marginVertical="20"
+        android:layout_marginVertical="20dp"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
@@ -45,7 +49,7 @@
         android:textStyle="bold"
         android:textSize="20dp"
         android:text="Toate Cheltuielile"
-        android:onClick="allTransactionsClicked"/>
+        />
 
     <Button
         android:id="@+id/necessaryTransactions"
@@ -74,17 +78,17 @@
         android:textSize="20dp"
         android:text="Cheltuieli Nenecesare" />
 
-    <Button
-        android:layout_marginTop="30dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add_transaction"
+        android:layout_margin="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:gravity="end"
-        android:layout_marginRight="20dp"
-        android:stateListAnimator="@null"
-        android:background="@drawable/circle"
+        android:gravity="bottom|end"
+        android:src="@drawable/ic_add"
         android:onClick="addTransactionClicked"
         >
-    </Button>
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 </LinearLayout>
+</ScrollView>
