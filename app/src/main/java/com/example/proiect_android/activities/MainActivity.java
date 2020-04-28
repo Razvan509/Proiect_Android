@@ -27,9 +27,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    public void addTransactionClicked(View view)
-    {
-        Intent intent = new Intent(this, AddTransactionActivity.class);
-        startActivity(intent);
-    }
+
 }
