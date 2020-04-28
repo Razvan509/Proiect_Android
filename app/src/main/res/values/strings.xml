@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Proiect_Android</string>
+    <string name="save">Save</string>
+    <string name="new_user">Add User</string>
+    <string name="saved">Saved Ok</string>
+    <string name="not_saved">Not Saved</string>
 </resources>
