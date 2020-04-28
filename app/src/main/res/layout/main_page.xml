@@ -93,6 +93,7 @@
         android:layout_marginRight="20dp"
         android:stateListAnimator="@null"
         android:background="@drawable/circle"
+        android:onClick="addTransactionClicked"
         >
     </Button>
 

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.proiect_android.Fragments.BalanceFragment;
+import com.example.proiect_android.Fragments.AddIncomeFragment;
 import com.example.proiect_android.Fragments.FirstPageFragment;
 import com.example.proiect_android.R;
 
@@ -15,7 +15,6 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     private FirstPageFragment firstPageFragment;
-    private BalanceFragment balanceFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +22,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         firstPageFragment = new FirstPageFragment();
-        balanceFragment = new BalanceFragment();
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.add(R.id.container, firstPageFragment);
         fragmentTransaction.commit();
     }
 
-    public void allTransactionsClicked(View view)
+    public void addTransactionClicked(View view)
     {
         Intent intent = new Intent(this, AddTransactionActivity.class);
         startActivity(intent);

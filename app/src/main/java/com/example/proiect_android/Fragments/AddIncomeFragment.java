@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.proiect_android.R;
 
-public class AddTransactionFragment extends Fragment {
+public class AddIncomeFragment extends Fragment {
 
     private Context context;
 
@@ -19,7 +19,7 @@ public class AddTransactionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.balance, container, false);
+        return inflater.inflate(R.layout.add_income, container, false);
     }
 
 }
