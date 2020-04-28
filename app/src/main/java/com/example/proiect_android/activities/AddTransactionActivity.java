@@ -1,4 +1,4 @@
-package com.example.proiect_android.Activities;
+package com.example.proiect_android.activities;
 
 import android.os.Bundle;
 import android.widget.EditText;
@@ -11,7 +11,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.proiect_android.Fragments.AddExpenseFragment;
 import com.example.proiect_android.Fragments.AddIncomeFragment;
-import com.example.proiect_android.Fragments.FirstPageFragment;
 import com.example.proiect_android.R;
 
 public class AddTransactionActivity extends AppCompatActivity {

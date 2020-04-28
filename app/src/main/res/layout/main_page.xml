@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/totalAmount"
-        android:layout_marginVertical="20"
+        android:layout_marginVertical="20dp"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_gravity="center"

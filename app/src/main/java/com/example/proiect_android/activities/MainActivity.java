@@ -1,10 +1,9 @@
-package com.example.proiect_android.Activities;
+package com.example.proiect_android.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.proiect_android.Fragments.AddIncomeFragment;
 import com.example.proiect_android.Fragments.FirstPageFragment;
 import com.example.proiect_android.R;
 
