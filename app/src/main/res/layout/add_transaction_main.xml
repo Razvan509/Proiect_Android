@@ -20,11 +20,25 @@
         android:orientation="horizontal">
         <RadioButton
             android:id="@+id/radio_button_expense"
+            android:textColor="@drawable/radio_button_transactions_text_selector"
+            android:background="@drawable/radio_button_transactions_selector"
+            android:button="@android:color/transparent"
+            android:paddingVertical="10dp"
+            android:width="120dp"
+            android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cheltuiala" />
         <RadioButton
             android:id="@+id/radio_button_income"
+            android:textColor="@drawable/radio_button_transactions_text_selector"
+            android:background="@drawable/radio_button_transactions_selector"
+            android:button="@android:color/transparent"
+            android:paddingVertical="10dp"
+            android:width="120dp"
+            android:gravity="center"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Venit" />

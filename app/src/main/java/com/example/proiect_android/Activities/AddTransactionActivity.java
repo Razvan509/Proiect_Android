@@ -16,15 +16,13 @@ import com.example.proiect_android.R;
 
 public class AddTransactionActivity extends AppCompatActivity {
 
-    public static final String EXTRA_USER_NAME =
-            "com.example.proiect_android.activities.EXTRA_USER_NAME";
+    private FragmentManager fragmentManager;
+    private FragmentTransaction fragmentTransaction;
 
     private EditText editTextExpenseAmount;
     private RadioGroup radioButtonSwitchBetweenTransactions;
     private RadioButton radioButtonExpenses;
     private RadioButton radioButtonIncome;
-    private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
 
     private AddExpenseFragment addExpenseFragment;
     private AddIncomeFragment addIncomeFragment;

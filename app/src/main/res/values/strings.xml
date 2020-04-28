@@ -20,5 +20,7 @@
     <string name="edit_text_transaction_date_hint">Data</string>
     <string name="edit_text_transaction_description_hint">Descriere</string>
     <string name="add_expanse_button_text">Adauga Cheltuiala</string>
+    <string name="add_income_button_text">Adauga Venit</string>
+
 
 </resources>
