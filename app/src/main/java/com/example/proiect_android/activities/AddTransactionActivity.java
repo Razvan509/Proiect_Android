@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.proiect_android.R;
 
-public class AddUserActivity extends AppCompatActivity {
+public class AddTransactionActivity extends AppCompatActivity {
     public static final String EXTRA_USER_NAME =
             "com.example.proiect_android.activities.EXTRA_USER_NAME";
 
@@ -22,7 +22,7 @@ public class AddUserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_user);
+        setContentView(R.layout.activity_add_transaction);
 
         editTextUserName = findViewById(R.id.edit_text_user_name);
 
@@ -49,14 +49,14 @@ public class AddUserActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.add_user_menu, menu);
+        menuInflater.inflate(R.menu.add_transaction_menu, menu);
         return true; // to display the menu
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.save_user:
+            case R.id.save_transaction:
                 saveUser();
                 return true;
             default:

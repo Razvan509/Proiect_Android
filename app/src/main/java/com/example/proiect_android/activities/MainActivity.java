@@ -3,16 +3,13 @@ package com.example.proiect_android.activities;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,11 +32,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FloatingActionButton buttonAddUser = findViewById(R.id.button_add_user);
+        FloatingActionButton buttonAddUser = findViewById(R.id.button_add_transaction);
         buttonAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddUserActivity.class);
+                Intent intent = new Intent(MainActivity.this, AddTransactionActivity.class);
                 startActivityForResult(intent, ADD_USER_REQUEST);
 
             }
@@ -67,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == ADD_USER_REQUEST && resultCode == RESULT_OK){
-            String userName = data.getStringExtra(AddUserActivity.EXTRA_USER_NAME);
+            String userName = data.getStringExtra(AddTransactionActivity.EXTRA_USER_NAME);
 
             User user = new User();
             user.setUserName(userName);

@@ -13,12 +13,12 @@ public class User {
     @ColumnInfo(name = "user_name")
     @NonNull
     private String userName;
-   /* @ColumnInfo(name = "mail")
+    @ColumnInfo(name = "mail")
     private String mail;
     @ColumnInfo(name = "password")
     private String password;
     @ColumnInfo(name = "amount")
-    private float amount;*/
+    private float amount;
 
     public int getId() {
         return id;
@@ -36,7 +36,7 @@ public class User {
         this.userName = userName;
     }
 
-    /*public String getMail() {
+    public String getMail() {
         return mail;
     }
 
@@ -58,5 +58,5 @@ public class User {
 
     public void setAmount(float amount) {
         this.amount = amount;
-    }*/
+    }
 }

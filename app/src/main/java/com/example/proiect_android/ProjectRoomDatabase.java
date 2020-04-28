@@ -9,14 +9,18 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+import com.example.proiect_android.beans.Category;
+import com.example.proiect_android.beans.Transaction;
+import com.example.proiect_android.dao.TransactionDao;
 import com.example.proiect_android.dao.UserDao;
 import com.example.proiect_android.beans.User;
 
-@Database(entities = User.class, version = 1)
+@Database(entities = {User.class, Transaction.class, Category.class}, version = 1)
 public abstract class ProjectRoomDatabase extends RoomDatabase {
     private static ProjectRoomDatabase projectRoomInstance;
 
     public abstract UserDao userDao();
+    public abstract TransactionDao transactionDao();
     
     public static synchronized ProjectRoomDatabase getInstance(Context context){
         if (projectRoomInstance == null){
