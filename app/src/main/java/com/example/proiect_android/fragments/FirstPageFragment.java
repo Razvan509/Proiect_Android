@@ -1,4 +1,4 @@
-package com.example.proiect_android.Fragments;
+package com.example.proiect_android.fragments;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -15,10 +15,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.proiect_android.AlarmHelpers.Receiver;
+import com.example.proiect_android.alarmHelpers.Receiver;
 import com.example.proiect_android.R;
 import com.example.proiect_android.activities.AddTransactionActivity;
-import com.example.proiect_android.activities.MainActivity;
 
 import java.util.Calendar;
 

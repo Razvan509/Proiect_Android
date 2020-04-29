@@ -1,12 +1,10 @@
-package com.example.proiect_android.AlarmHelpers;
+package com.example.proiect_android.alarmHelpers;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;

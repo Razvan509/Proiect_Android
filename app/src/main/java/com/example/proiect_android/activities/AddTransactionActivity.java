@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.proiect_android.Fragments.AddExpenseFragment;
-import com.example.proiect_android.Fragments.AddIncomeFragment;
+import com.example.proiect_android.fragments.AddExpenseFragment;
+import com.example.proiect_android.fragments.AddIncomeFragment;
 import com.example.proiect_android.R;
 
 public class AddTransactionActivity extends AppCompatActivity {

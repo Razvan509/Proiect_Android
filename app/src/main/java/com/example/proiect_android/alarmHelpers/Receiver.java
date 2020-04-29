@@ -1,4 +1,4 @@
-package com.example.proiect_android.AlarmHelpers;
+package com.example.proiect_android.alarmHelpers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
