@@ -94,8 +94,9 @@ public class FirstPageFragment extends Fragment {
         calendar.set(Calendar.MONTH, month);
         calendar.set(Calendar.DAY_OF_MONTH, day);
         calendar.set(Calendar.HOUR_OF_DAY, hour);
-        calendar.set(Calendar.MINUTE, minute);System.out.println(getArguments());
-        String title = "title";
+        calendar.set(Calendar.MINUTE, minute);
+        System.out.println(getArguments());
+        String title = "Verifica Tranzactiile";
 
         sendOnChannel(title, calendar);
     }
@@ -104,13 +105,11 @@ public class FirstPageFragment extends Fragment {
         AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(getContext(), Receiver.class);
         intent.putExtra("title", title);
-        Toast.makeText(getContext(), "Alarm Created" , Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Alarm created", Toast.LENGTH_SHORT).show();
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 101, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 
     }
-
-
 
 }
 

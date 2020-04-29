@@ -5,6 +5,8 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 
 import androidx.annotation.RequiresApi;
@@ -29,9 +31,8 @@ public class NotificationHelper extends ContextWrapper {
         NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_DEFAULT);
         channel.enableLights(true);
         channel.enableVibration(true);
-        channel.setLightColor(R.color.colorPrimary);
+        channel.setLightColor(R.color.colorPrimaryDark);
         channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-
         getManager().createNotificationChannel(channel);
     }
 

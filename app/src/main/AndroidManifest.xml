@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.AddTransactionActivity"/>
+        <receiver android:name=".AlarmHelpers.Receiver" android:exported="true"/>
     </application>
 
 </manifest>
