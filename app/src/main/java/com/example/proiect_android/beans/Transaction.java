@@ -9,20 +9,21 @@ import androidx.room.TypeConverter;
 
 import java.util.Date;
 
+
 @Entity(tableName = "transactions", foreignKeys =
-        {@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "user_id"),
-                @ForeignKey(entity = Category.class, parentColumns = "id", childColumns = "category_id")})
+        {//@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "user_id")
+               @ForeignKey(entity = Category.class, parentColumns = "id", childColumns = "category_id")})
 public class Transaction {
     @PrimaryKey(autoGenerate = true)
     @NonNull
     private int id;
-
 
     @ColumnInfo(name = "transaction_date")
     @NonNull
     private Date transactionDate;
 
     @ColumnInfo(name = "description")
+    @NonNull
     private String description;
 
     @ColumnInfo(name = "amount")
@@ -36,10 +37,11 @@ public class Transaction {
     @NonNull
     private int categoryId;
 
-    public Transaction(String description, float amount, int categoryId){
+    public Transaction(String description, float amount, int categoryId, Date transactionDate){
         this.description = description;
         this.amount = amount;
         this.categoryId = categoryId;
+        this.transactionDate = transactionDate;
     }
 
     public int getId() {
@@ -59,12 +61,13 @@ public class Transaction {
         this.transactionDate = transactionDate;
     }
 
+    @NonNull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        description = description;
+    public void setDescription(@NonNull String description) {
+        this.description = description;
     }
 
     public float getAmount() {

@@ -17,7 +17,10 @@ import com.example.proiect_android.dao.TransactionDao;
 import com.example.proiect_android.dao.UserDao;
 import com.example.proiect_android.beans.User;
 
-@Database(entities = {User.class, Transaction.class, Category.class}, version = 2)
+import java.util.Date;
+
+
+@Database(entities = {User.class, Category.class, Transaction.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class ProjectRoomDatabase extends RoomDatabase {
     private static ProjectRoomDatabase projectRoomInstance;
@@ -28,7 +31,7 @@ public abstract class ProjectRoomDatabase extends RoomDatabase {
     
     public static synchronized ProjectRoomDatabase getInstance(Context context){
         if (projectRoomInstance == null){
-            projectRoomInstance = Room.databaseBuilder(context.getApplicationContext(), ProjectRoomDatabase.class, "project_database")
+            projectRoomInstance = Room.databaseBuilder(context.getApplicationContext(), ProjectRoomDatabase.class, "project_database9")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -59,9 +62,9 @@ public abstract class ProjectRoomDatabase extends RoomDatabase {
             categoryDao.insert(new Category(2,"necessary"));
             categoryDao.insert(new Category(3,"unnecessary"));
 
-            transactionDao.insert(new Transaction("asfasfasfa",23,1));
-            transactionDao.insert(new Transaction("asfasfasfa",233,2));
-            transactionDao.insert(new Transaction("asfasfasfa",234,3));
+            transactionDao.insert(new Transaction("asfasfasfa",23,1,new Date(2020,4,29)));
+            transactionDao.insert(new Transaction("asfasfasfa",233,2,new Date(2020,4,29)));
+            transactionDao.insert(new Transaction("asfasfasfa",234,3,new Date(2020,4,29)));
 
 
             //income - 1

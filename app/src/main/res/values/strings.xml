@@ -1,10 +1,11 @@
 <resources>
-    <string name="necessary_button_text">Necesara</string>
-    <string name="unnecessary_button_text">Nenecesara</string>
-    <string name="edit_text_transaction_amount_hint">Valoare</string>
-    <string name="edit_text_transaction_date_hint">Data</string>
-    <string name="edit_text_transaction_description_hint">Descriere</string>
-    <string name="add_expanse_button_text">Adauga Cheltuiala</string>
-    <string name="add_income_button_text">Adauga Venit</string>
+    <string name="necessary_button_text">Necessary</string>
+    <string name="unnecessary_button_text">Unnecessary</string>
+    <string name="edit_text_transaction_amount_hint">Amount</string>
+    <string name="edit_text_transaction_date_hint">Date</string>
+    <string name="edit_text_transaction_description_hint">Description</string>
+    <string name="add_expanse_button_text">Add Expense</string>
+    <string name="add_income_button_text">Add Income</string>
     <string name="app_name">Your Money => Our Money</string>
+    <string name="text_view_date_selector">Select a date</string>
 </resources>

@@ -57,8 +57,8 @@
         android:layout_width="fill_parent">
     </EditText>
 
-    <EditText
-        android:id="@+id/edit_text_expanse_date"
+    <Button
+        android:id="@+id/button_select_date_expense"
         android:stateListAnimator="@null"
         android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="40dp"
@@ -67,10 +67,21 @@
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimary"
         android:layout_height="wrap_content"
-        android:hint="@string/edit_text_transaction_date_hint"
-        android:inputType="date"
+        android:hint="@string/text_view_date_selector"
         android:layout_width="fill_parent">
-    </EditText>
+    </Button>
+
+    <TextView
+        android:id="@+id/text_date_expense"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="10dp"
+        android:layout_marginHorizontal="40dp"
+        android:padding="10dp"
+        android:background="@drawable/rectangle"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
+        />
 
     <EditText
         android:id="@+id/edit_text_expanse_description"

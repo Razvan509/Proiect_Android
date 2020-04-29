@@ -28,9 +28,11 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
     @Override
     public void onBindViewHolder(@NonNull TransactionHolder holder, int position) {
         Transaction currentTransaction = transactions.get(position);
-        holder.textViewCategory.setText(currentTransaction.getCategoryId());
+        holder.textViewCategory.setText(currentTransaction.getCategoryId()+"");
         holder.textViewAmount.setText(currentTransaction.getAmount()+"");
         holder.textViewDescription.setText(currentTransaction.getDescription());
+        holder.textViewDate.setText(currentTransaction.getTransactionDate().getDay()+"-"
+                +currentTransaction.getTransactionDate().getMonth()+"-"+currentTransaction.getTransactionDate().getYear());
     }
 
     @Override
@@ -47,6 +49,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         private TextView textViewCategory;
         private TextView textViewDescription;
         private TextView textViewAmount;
+        private TextView textViewDate;
 
 
         public TransactionHolder(@NonNull View itemView) {
@@ -54,6 +57,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             textViewCategory = itemView.findViewById(R.id.text_category);
             textViewDescription = itemView.findViewById(R.id.text_description);
             textViewAmount = itemView.findViewById(R.id.text_amount);
+            textViewDate = itemView.findViewById(R.id.text_date);
         }
     }
 }

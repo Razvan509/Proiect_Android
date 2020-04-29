@@ -15,8 +15,6 @@ public class User {
     private String userName;
     @ColumnInfo(name = "mail")
     private String mail;
-    @ColumnInfo(name = "password")
-    private String password;
     @ColumnInfo(name = "amount")
     private float amount;
 
@@ -42,14 +40,6 @@ public class User {
 
     public void setMail(String mail) {
         this.mail = mail;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public float getAmount() {
