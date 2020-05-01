@@ -2,6 +2,7 @@ package com.example.proiect_android.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.proiect_android.R;
+import com.example.proiect_android.beans.User;
+import com.example.proiect_android.models.UserViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -19,12 +22,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class AuthActivity extends AppCompatActivity {
-    private static final String TAG = "AuthActivity";
-    private static final String EXTRA_USER = "com.example.proiect_android.activities.EXTRA_USER";
-    private static final String EXTRA_FIREBASE = "com.example.proiect_android.activities.EXTRA_FIREBASE";
+    public static final String TAG = "AuthActivity";
+    public static final String EXTRA_USER = "com.example.proiect_android.activities.EXTRA_USER";
     private FirebaseAuth mAuth;
     private EditText mail,password;
     private Button signUp,logIn;
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,7 @@ public class AuthActivity extends AppCompatActivity {
 
         signUp = findViewById(R.id.sign_up_button);
         logIn = findViewById(R.id.login_button);
+        userViewModel = ViewModelProviders.of(this).get(UserViewModel.class);
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +98,12 @@ public class AuthActivity extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
+                            User u = new User();
+                            u.setId(user.getUid());
+                            u.setUserName(user.getEmail());
+                            u.setAmount(0);
+                            userViewModel.insert(u);
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

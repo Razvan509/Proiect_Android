@@ -29,6 +29,7 @@
             android:launchMode="singleTop">
 
         </activity>
+        <receiver android:name=".alarmHelpers.Receiver" android:exported="true"/>
     </application>
 
 </manifest>

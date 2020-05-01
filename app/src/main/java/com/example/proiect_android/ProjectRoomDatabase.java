@@ -31,7 +31,7 @@ public abstract class ProjectRoomDatabase extends RoomDatabase {
     
     public static synchronized ProjectRoomDatabase getInstance(Context context){
         if (projectRoomInstance == null){
-            projectRoomInstance = Room.databaseBuilder(context.getApplicationContext(), ProjectRoomDatabase.class, "project_database9")
+            projectRoomInstance = Room.databaseBuilder(context.getApplicationContext(), ProjectRoomDatabase.class, "project_data")
                     .fallbackToDestructiveMigration()
                     .addCallback(roomCallback)
                     .build();
@@ -62,9 +62,12 @@ public abstract class ProjectRoomDatabase extends RoomDatabase {
             categoryDao.insert(new Category(2,"necessary"));
             categoryDao.insert(new Category(3,"unnecessary"));
 
-            transactionDao.insert(new Transaction("asfasfasfa",23,1,new Date(2020,4,29)));
-            transactionDao.insert(new Transaction("asfasfasfa",233,2,new Date(2020,4,29)));
-            transactionDao.insert(new Transaction("asfasfasfa",234,3,new Date(2020,4,29)));
+            Transaction t = new Transaction();
+            t.setUserId("UL81gKnZWIV0Tj7HS4JcdSp8cXz2");
+            t.setTransactionDate(new Date(2020,4,29));
+            t.setCategoryId(1);
+            t.setAmount(20);
+            transactionDao.insert(t);
 
 
             //income - 1

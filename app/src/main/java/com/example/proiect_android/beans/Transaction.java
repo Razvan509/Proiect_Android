@@ -11,7 +11,7 @@ import java.util.Date;
 
 
 @Entity(tableName = "transactions", foreignKeys =
-        {//@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "user_id")
+        {@ForeignKey(entity = User.class, parentColumns = "id", childColumns = "user_id"),
                @ForeignKey(entity = Category.class, parentColumns = "id", childColumns = "category_id")})
 public class Transaction {
     @PrimaryKey(autoGenerate = true)
@@ -31,18 +31,13 @@ public class Transaction {
     private float amount;
 
     @ColumnInfo(name = "user_id")
-    private int userId;
+    @NonNull
+    private String userId;
 
     @ColumnInfo(name = "category_id")
     @NonNull
     private int categoryId;
 
-    public Transaction(String description, float amount, int categoryId, Date transactionDate){
-        this.description = description;
-        this.amount = amount;
-        this.categoryId = categoryId;
-        this.transactionDate = transactionDate;
-    }
 
     public int getId() {
         return id;
@@ -78,11 +73,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public int getUserId() {
+    @NonNull
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(@NonNull String userId) {
         this.userId = userId;
     }
 

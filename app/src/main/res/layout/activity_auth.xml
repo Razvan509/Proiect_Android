@@ -45,16 +45,6 @@
                     android:inputType="textPassword"
                     android:hint="Password"/>
 
-
-                <CheckBox
-                    android:id="@+id/remember_me"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="40dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="Remember me"
-                    android:textColor="@color/colorPrimaryDark" />
-
                 <Button
                     android:text="Sign Up"
                     android:id="@+id/sign_up_button"

@@ -7,22 +7,21 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "users")
 public class User {
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @NonNull
-    private int id;
+    private String id;
     @ColumnInfo(name = "user_name")
     @NonNull
     private String userName;
-    @ColumnInfo(name = "mail")
-    private String mail;
     @ColumnInfo(name = "amount")
+    @NonNull
     private float amount;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -32,14 +31,6 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public float getAmount() {
